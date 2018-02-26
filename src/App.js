@@ -32,18 +32,12 @@ class App extends Component {
 
 
                 {
-                    !auth.isAuthenticated() && auth.login()
+                    /* !auth.isAuthenticated() */ 1 === 0 && auth.login()
                 }
                 {
                     auth.isAuthenticated() && (
                       <div>
-                          <Button
-                          bsStyle="primary"
-                          className="btn-margin"
-                          onClick={this.logout.bind(this)}
-                          >
-                          Log Out
-                          </Button>
+
                       <header className="App-header">
                           <img src={logo} className="App-logo" alt="logo" />
                           <h1 className="App-title">Welcome to React</h1>
@@ -53,8 +47,8 @@ class App extends Component {
                           <Button content='Click Here' />
                       </p>
                       <Button onClick={this.toggleVisibility}>Toggle Visibility</Button>
-                      <Sidebar.Pushable as={Segment}>
-                          <Sidebar as={Menu} animation='overlay' width='thin' visible={visible} icon='labeled' vertical inverted>
+                      <Sidebar.Pushable as={ Segment }>
+                          <Sidebar as={Menu} width='very wide' visible={true} icon='labeled' vertical inverted>
                               <Menu.Item name='home'>
                                   <Icon name='home' />
                                   Home
@@ -63,9 +57,11 @@ class App extends Component {
                                   <Icon name='gamepad' />
                                   Games
                               </Menu.Item>
-                              <Menu.Item name='camera'>
+                              <Menu.Item onClick={this.logout.bind(this)} name='Log Out'>
                                   <Icon name='camera' />
-                                  Channels
+                                  Log Out
+
+
                               </Menu.Item>
                           </Sidebar>
                           <Sidebar.Pusher>
